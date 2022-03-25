@@ -21,10 +21,15 @@
 	?>
 </head>
 <body>
-	<div align="right"><a href="signin.php">Sign in</a>
-	<a href="login.php">Login</a><br></div>
 	<h1 align="center">Welcome To Millanium Art Gallery</h1>
 	<?php
+		if(empty($_SESSION['logged_user'])){
+			echo "<div align='right'><a href='signin.php'>Sign in</a>";
+			echo "<a href='login.php'>Login</a><br></div>";
+		}else{
+			echo "<div align='right'><a href='logout.php'>Logout</a><br></div>";
+		}
+
 		$sql = "use ICT2153;";
 
 		if ($conn->query($sql) === TRUE) {

@@ -25,7 +25,7 @@
 	<h1 align="center">Log In</h1>
 
 	<div align="center">
-		<form action="home.php" method="post">
+		<form action="" method="post">
 			Email : <input type="text" name="email"><br>
 			Password : <input type="password" name="pwd"><br>
 			<input type="submit" name="submit" value="Submit"><br>
@@ -45,6 +45,8 @@
 
 						$_SESSION['logged_user'] = $logged_user;
 						echo "<br>The logged in user is " . $data['firstname'];
+						sleep(1);
+						header( 'Location: home.php' );
 						break;
 					}
 				}

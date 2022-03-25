@@ -42,6 +42,8 @@
 
 		if ($conn->query($sql) === TRUE) {
 		  echo "New record created successfully";
+		  sleep(2);
+		  header( 'Location: login.php' );
 		} else {
 		  echo "Error: " . $sql . "<br>" . $conn->error;
 		}
