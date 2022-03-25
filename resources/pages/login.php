@@ -41,9 +41,11 @@
 				while($data= mysqli_fetch_assoc($result)){
 					if($data["gmail"] == $_POST['email'] && $data["password"] == $_POST['pwd']){
 						$logged_user = $data['firstname'];
+						$logged_user_id = $data['id'];
 						//$_SESSION['varname'] = $var_value;
 
 						$_SESSION['logged_user'] = $logged_user;
+						$_SESSION['user_id'] = $logged_user_id;
 						echo "<br>The logged in user is " . $data['firstname'];
 						sleep(1);
 						header( 'Location: home.php' );

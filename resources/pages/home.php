@@ -25,9 +25,13 @@
 	<?php
 		if(empty($_SESSION['logged_user'])){
 			echo "<div align='right'><a href='signin.php'>Sign in</a>";
-			echo "<a href='login.php'>Login</a><br></div>";
+			echo " <a href='login.php'>Login</a>";
+			echo " <a href='art_gallery.php'>Gallery</a><br></div>";
+
 		}else{
-			echo "<div align='right'><a href='logout.php'>Logout</a><br></div>";
+			echo "<div align='right'><a href='user_account.php'>Account</a>";
+			echo " <a href='logout.php'>Logout</a>";
+			echo " <a href='art_gallery.php'>Gallery</a><br></div>";
 		}
 
 		$sql = "use ICT2153;";
