@@ -25,8 +25,9 @@
 </head>
 <body>
 	<form action="" method="post" enctype="multipart/form-data">
+		Enter the image topic<br><input type="text" name="topic"><br><br>
 		<label>Select Image File:</label>
-		<input type="file" name="image">
+		<input type="file" name="image"><br><br>
 		<input type="submit" name="submit" value="Upload">
 	</form>
 
@@ -42,8 +43,9 @@
 				if(in_array($fileType, $allowTypes)){
 					$image = $_FILES['image']['tmp_name'];
 					$imgContent = addslashes(file_get_contents($image));
+					$topic = $_POST['topic'];
 
-					$sql = "INSERT into images (image, created, user_id) VALUES ('$imgContent', NOW(), '$user_id')";
+					$sql = "INSERT into images (image, created, rank, topic, user_id) VALUES ('$imgContent', NOW(), 0, '$topic', '$user_id')";
 					//$sql = "SELECT * FROM user;";
 					$insert = $conn->query($sql); 
 

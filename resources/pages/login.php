@@ -48,7 +48,11 @@
 						$_SESSION['user_id'] = $logged_user_id;
 						echo "<br>The logged in user is " . $data['firstname'];
 						sleep(1);
-						header( 'Location: home.php' );
+						if($data['type'] == "admin"){
+							header( 'Location: admin.php' );
+						}else{
+							header( 'Location: home.php' );
+						}
 						break;
 					}
 				}

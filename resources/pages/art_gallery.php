@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="../css/gallery.css">
 	<?php
 		$servername = "localhost";
 		$username = "root";
@@ -18,20 +19,21 @@
 			$current_user = $_SESSION['logged_user'];
 			echo "<h2>Hello " . $current_user . "</h2>";
 		}
-
 		mysqli_select_db($conn, 'ICT2153');
 	?>
 </head>
 <body>
 	<?php
-		$sql = "SELECT image FROM images ORDER BY img_id DESC;";
+		$sql = "SELECT image, img_id FROM images ORDER BY img_id DESC;";
 		$result = $conn->query($sql);
 
 		if($result->num_rows > 0){
 			echo "<div class='gallery'>";
 			while($row = $result->fetch_assoc()){
 				?>
-					<img style='width: 20%; height: 20%;' src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>"/>
+					<a href="img_info.php?img_id=<?php echo($row['img_id']);?>">
+						<img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>"/>
+					</a>
 				<?php
 			}
 			echo "</div>";
