@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>List Item</title>
+	<link rel="stylesheet" type="text/css" href="../css/nav.css">
 	<?php
 		$servername = "localhost";
 		$username = "root";
@@ -19,11 +20,20 @@
 		if(!empty($_SESSION['logged_user'])){
 			$current_user = $_SESSION['logged_user'];
 			$user_id = $_SESSION['user_id'];
-			echo "<h2>Hello " . $current_user . "</h2>";
+			//echo "<h2>Hello " . $current_user . "</h2>";
 		}
 	?>
 </head>
 <body>
+	<div class="topnav">
+	<?php
+		echo "<a href='user_account.php'>Hello " . $current_user . "!</a>";
+		echo "<a href='user_account.php'>Account</a>";
+		//echo "<a href='logout.php'>Logout</a>";
+		echo "<a href='art_gallery.php'>Gallery</a>";
+		echo "<a href='home.php'>Home</a> </div>";
+	?>
+
 	<form action="" method="post" enctype="multipart/form-data">
 		Enter the image topic<br><input type="text" name="topic"><br><br>
 		<label>Select Image File:</label>

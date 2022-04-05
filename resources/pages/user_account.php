@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Account</title>
+	<link rel="stylesheet" type="text/css" href="../css/nav.css">
 	<?php
 		$servername = "localhost";
 		$username = "root";
@@ -19,12 +20,19 @@
 
 		if(!empty($_SESSION['logged_user'])){
 			$current_user = $_SESSION['logged_user'];
-			echo "<h1 align='center'>Hello " . $current_user . "</h1>";
+			//echo "<h1 align='center'>Hello " . $current_user . "</h1>";
 		}
 	?>
 </head>
 <body>
+	<div class="topnav">
 	<?php
+		echo "<a href='user_account.php'>Hello " . $current_user . "!</a>";
+		echo "<a class='active' href='user_account.php'>Account</a>";
+		//echo "<a href='logout.php'>Logout</a>";
+		echo "<a href='art_gallery.php'>Gallery</a>";
+		echo "<a href='home.php'>Home</a> </div>";
+
 		$sql = "SELECT * FROM `user`";
 		$result = mysqli_query($conn, $sql);
 		$check = mysqli_num_rows($result);
