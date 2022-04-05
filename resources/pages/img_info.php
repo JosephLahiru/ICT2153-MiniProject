@@ -53,10 +53,44 @@
 
 					echo "<div align='center'>$topic<br>";
 					echo "Artist : $first $last<br>";
-					echo "Created on : $created</div>";
+					echo "Created on : $created<br></div>";
 					break;
 				}
 			}
+			$view = $row['views'];
+			echo "<div>Current Views : $view</div>";
+			?>
+<!-- 			<form action="" method="post">
+				<input type="submit" name="rank_up" value="Vote Up">
+			</form> -->
+			<?php
+				$new_view = $view+1;
+				$img_id = $_GET['img_id'];
+
+				$view_update_sql = "UPDATE images SET views=$new_view WHERE img_id=$img_id;";
+				if ($conn->query($view_update_sql) === TRUE) {
+					// echo "Record updated successfully";
+					// sleep(2);
+					// header( 'Location: img_info.php?img_id=$img_id' );
+
+				} else {
+					echo "Error: " . $sql . "<br>" . $conn->error;
+				}
+			// if(isset($_POST['rank_up'])){
+				// $new_rank = $rank+1;
+				// $img_id = $_GET['img_id'];
+
+				// $rank_update_sql = "UPDATE images SET rank=$new_rank WHERE img_id=$img_id;";
+				// if ($conn->query($rank_update_sql) === TRUE) {
+				// 	echo "Record updated successfully";
+				// 	sleep(2);
+				// 	header( 'Location: img_info.php?img_id=$img_id' );
+
+				// } else {
+				// 	echo "Error: " . $sql . "<br>" . $conn->error;
+				// }
+			// }
+
 		}else{
 			echo "<p class='status error'>Image(s) not found...</p>";
 		}

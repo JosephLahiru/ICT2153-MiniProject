@@ -38,7 +38,6 @@
 	<?php
 	if(isset($_POST['submit'])){
 		$sql = "INSERT INTO user (firstname, lastname, gmail, password, address, type) VALUES ('" . $_POST['fname'] . "', '" . $_POST['lname'] . "', '" . $_POST['email'] . "', '" . $_POST['pwd'] . "', '" . $_POST['address'] . "', '" . $_POST['type'] . "');";
-		// $sql = "use ICT2153; CREATE TABLE user(id INT AUTO_INCREMENT PRIMARY KEY, firstname VARCHAR(20), lastname VARCHAR(20), gmail VARCHAR(40), address VARCHAR(50), type VARCHAR(8));";
 
 		if ($conn->query($sql) === TRUE) {
 		  echo "New record created successfully";
