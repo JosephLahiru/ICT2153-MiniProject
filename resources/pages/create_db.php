@@ -8,10 +8,14 @@
 		<input type="submit" name="submit" value="SETUP DATABASE">
 	</form>
 	<?php
+		$servername ="gator4256.hostgator.com";
+		$username = "clapde83_joseph";
+		$password = "AoftCt2dOD9P";
+		$dbname = "clapde83_mini_project";
 
-		$servername = "localhost";
-		$username = "root";
-		$password = "";
+		// $servername = "localhost";
+		// $username = "root";
+		// $password = "";
 
 		$conn = mysqli_connect($servername, $username, $password);
 
@@ -26,15 +30,15 @@
 
 		if(isset($_POST['submit'])){
 
-			$create_db = "CREATE DATABASE ICT2153;";
+			// $create_db = "CREATE DATABASE ICT2153;";
 
-			if ($conn->query($create_db) === TRUE) {
-			  echo "ICT2153 DB created successfully<br>";
-			} else {
-			  echo "Error: " . $user_table . "<br>" . $conn->error;
-			}
+			// if ($conn->query($create_db) === TRUE) {
+			//   echo "ICT2153 DB created successfully<br>";
+			// } else {
+			//   echo "Error: " . $user_table . "<br>" . $conn->error;
+			// }
 
-			mysqli_select_db($conn, 'ICT2153');
+			mysqli_select_db($conn, $dbname);
 
 			if ($conn->query($user_table) === TRUE) {
 			  echo "User table created successfully<br>";
