@@ -4,16 +4,9 @@
 	<title>Home</title>
 	<link rel="stylesheet" type="text/css" href="../css/nav.css">
 	<?php
-		$servername = "localhost";
-		$username = "root";
-		$password = "";
-
-		$conn = mysqli_connect($servername, $username, $password);
+		require_once '../php_scripts/connect.php';
 		session_start();
-
-		if (!$conn) {
-			die("Connection failed: " . mysqli_connect_error());
-		}
+		
 		//echo $_SESSION['animal'];
 		if(!empty($_SESSION['logged_user'])){
 			$current_user = $_SESSION['logged_user'];
@@ -39,7 +32,7 @@
 				echo "<a class='active' href='home.php'>Home</a>";
 			}
 
-			$sql = "use ICT2153;";
+			$sql = "use $dbname;";
 
 			if ($conn->query($sql) === TRUE) {
 			  //echo "New record created successfully";

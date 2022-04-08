@@ -5,11 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/gallery.css">
 	<link rel="stylesheet" type="text/css" href="../css/nav.css">
 	<?php
-		$servername = "localhost";
-		$username = "root";
-		$password = "";
-
-		$conn = mysqli_connect($servername, $username, $password);
+		require_once '../php_scripts/connect.php';
 		session_start();
 
 		if (!$conn) {
@@ -20,7 +16,7 @@
 			$current_user = $_SESSION['logged_user'];
 			//echo "<h2>Hello " . $current_user . "</h2>";
 		}
-		mysqli_select_db($conn, 'ICT2153');
+		mysqli_select_db($conn, $dbname);
 	?>
 </head>
 <body>

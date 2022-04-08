@@ -3,17 +3,9 @@
 <head>
 	<title>Sign In</title>
 	<?php
-		$servername = "localhost";
-		$username = "root";
-		$password = "";
+		require_once '../php_scripts/connect.php';
 
-		$conn = mysqli_connect($servername, $username, $password);
-
-		if (!$conn) {
-			die("Connection failed: " . mysqli_connect_error());
-		}
-
-		mysqli_select_db($conn, 'ICT2153');
+		mysqli_select_db($conn, $dbname);
 	?>
 </head>
 <body>

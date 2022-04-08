@@ -2,27 +2,13 @@
 <html>
 <head>
 	<title></title>
+	<?php require_once '../php_scripts/connect.php'?>
 </head>
 <body>
 	<form action="" method="post">
 		<input type="submit" name="submit" value="SETUP DATABASE">
 	</form>
 	<?php
-		$servername ="gator4256.hostgator.com";
-		$username = "clapde83_joseph";
-		$password = "AoftCt2dOD9P";
-		$dbname = "clapde83_mini_project";
-
-		// $servername = "localhost";
-		// $username = "root";
-		// $password = "";
-
-		$conn = mysqli_connect($servername, $username, $password);
-
-		if (!$conn) {
-			die("Connection failed: " . mysqli_connect_error());
-		}
-
 		$user_table = "CREATE TABLE user(id INT AUTO_INCREMENT PRIMARY KEY, firstname VARCHAR(20), lastname VARCHAR(20), gmail VARCHAR(40), password VARCHAR(30), address VARCHAR(50), type VARCHAR(8))  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
 		$images_table = "CREATE TABLE `images` (`img_id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, `image` longblob NOT NULL, `created` datetime NOT NULL DEFAULT current_timestamp(), `rank` INT, `views` INT, `topic` VARCHAR(150), user_id INT, FOREIGN KEY(`user_id`) REFERENCES user(`id`))  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
 		//$images_table = "CREATE TABLE `images` (`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, `image` longblob NOT NULL, `created` datetime NOT NULL DEFAULT current_timestamp(), `rank` INT, `views` INT, `topic` VARCHAR(150), user_id INT, FOREIGN KEY(`user_id`) REFERENCES user(`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
