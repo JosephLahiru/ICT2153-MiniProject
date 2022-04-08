@@ -3,6 +3,7 @@
 <head>
 	<title>List Item</title>
 	<link rel="stylesheet" type="text/css" href="../css/nav.css">
+	<link rel="stylesheet" type="text/css" href="../css/listb.css">
 	<?php
 		require_once '../php_scripts/connect.php';
 		session_start();
@@ -35,7 +36,7 @@
 			Enter the image topic<br><input type="text" name="topic"><br><br>
 			<label>Select Image File:</label>
 			<input type="file" name="image"><br><br>
-			<input type="submit" name="submit" value="Upload">
+			<input type="submit" name="submit" value="Upload" class="upload_button">
 		</form>
 
 		<?php 
@@ -58,7 +59,8 @@
 
 						if($insert){ 
 							$status = 'success';
-							$statusMsg = "File uploaded successfully." . "<br>SQL : " . $sql;
+							//$statusMsg = "File uploaded successfully." . "<br>SQL : " . $sql;
+							$statusMsg = "File uploaded successfully.";
 						}else{
 							$statusMsg = "File upload failed, please try again. <br> Error : " . $conn->error . "<br>SQL : " . $sql;
 						}

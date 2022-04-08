@@ -37,6 +37,18 @@
 			} else {
 			  echo "Error: " . $images_table . "<br>" . $conn->error;
 			}
+
+			// for($i=0; $i<22; $i++){
+			// 	$sql = "INSERT into images (image, created, rank, topic, user_id) VALUES ('$imgContent', NOW(), 0, '$topic', '$user_id')";
+			// 	$insert = $conn->query($sql); 
+
+			// 	if($insert){ 
+			// 		$status = 'success';
+			// 		$statusMsg = "File uploaded successfully." . "<br>SQL : " . $sql;
+			// 	}else{
+			// 		$statusMsg = "File upload failed, please try again. <br> Error : " . $conn->error . "<br>SQL : " . $sql;
+			// 	}
+			// }
 		}
 	?>
 </body>

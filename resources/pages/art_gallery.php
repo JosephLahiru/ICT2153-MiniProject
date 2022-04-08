@@ -23,8 +23,13 @@
 	<div class="main">
 		<div class="topnav">
 		<?php
-			echo "<a href='user_account.php'>Hello " . $current_user . "!</a>";
-			echo "<a href='user_account.php'>Account</a>";
+			if(empty($current_user)){
+				$current_user = "Guest";
+			}
+			if($current_user != "Guest"){
+				echo "<a href='user_account.php'>Hello " . $current_user . "!</a>";
+				echo "<a href='user_account.php'>Account</a>";
+			}
 			//echo "<a href='logout.php'>Logout</a>";
 			echo "<a class='active' href='art_gallery.php'>Gallery</a>";
 			echo "<a href='home.php'>Home</a> </div>";

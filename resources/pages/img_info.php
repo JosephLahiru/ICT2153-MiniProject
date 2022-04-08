@@ -2,15 +2,16 @@
 <html>
 <head>
 	<title>Image Info</title>
+	<link rel="stylesheet" type="text/css" href="../css/listb.css">
+	<link rel="stylesheet" type="text/css" href="../css/nav.css">
 	<?php
 		require_once '../php_scripts/connect.php';
 		session_start();
 
-		//echo $_SESSION['animal'];
-		// if(!empty($_SESSION['logged_user'])){
-		// 	$current_user = $_SESSION['logged_user'];
-		// 	echo "<h2>Hello " . $current_user . "</h2>";
-		// }
+		if(!empty($_SESSION['logged_user'])){
+			$current_user = $_SESSION['logged_user'];
+			//echo "<h2>Hello " . $current_user . "</h2>";
+		}
 		mysqli_select_db($conn, $dbname);
 	?>
 	<style type="text/css">
@@ -24,7 +25,14 @@
 </head>
 <body>
 	<div class="main">
+		<div class="topnav">
 		<?php
+			echo "<a href='user_account.php'>Hello " . $current_user . "!</a>";
+			echo "<a href='user_account.php'>Account</a>";
+			//echo "<a href='logout.php'>Logout</a>";
+			echo "<a href='art_gallery.php'>Gallery</a>";
+			echo "<a href='home.php'>Home</a> </div>";
+
 			//echo "The image id is " . $_GET['img_id'];
 
 			$sql_img = "SELECT * FROM images ORDER BY img_id DESC;";
@@ -36,17 +44,20 @@
 						$user=$row['user_id'];
 						$sql_user = "SELECT id, firstname, lastname FROM user WHERE id=$user;";
 						$result_usr = $conn->query($sql_user);
-						$row_usr = $result_usr->fetch_assoc()
-						?>
-							<img class="center" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>"/>
-						<?php
+						$row_usr = $result_usr->fetch_assoc();
+
 						$first = $row_usr['firstname'];
 						$last = $row_usr['lastname'];
 						$created = $row['created'];
 						$topic = $row['topic'];
 
-						echo "<div align='center'>$topic<br>";
-						echo "Artist : $first $last<br>";
+						echo "<h1 align='center'>$topic</h1>";
+
+						?>
+							<img class="center" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>"/>
+						<?php
+
+						echo "<div align='center'>Artist : $first $last<br>";
 						echo "Created on : $created<br></div>";
 						break;
 					}
@@ -89,6 +100,7 @@
 				echo "<p class='status error'>Image(s) not found...</p>";
 			}
 		?>
+		<div align="center"><a href="payment_portal.php"><button class="buy_button">Buy Now</button></a><button class="cart_button">Add To Cart</button></div>
 	</div>
 </body>
 </html>

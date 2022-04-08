@@ -1,0 +1,64 @@
+.list_button {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+  transition-duration: 0.2s;
+  height: 50px;
+  width: 100px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.list_button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.upload_button {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+  transition-duration: 0.2s;
+  height: 30px;
+  width: 80px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.upload_button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.buy_button {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+  transition-duration: 0.2s;
+  height: 40px;
+  width: 100px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.buy_button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.cart_button {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+  transition-duration: 0.2s;
+  height: 40px;
+  width: 140px;
+  font-size: 20px;
+  border-radius: 5px;
+  margin-left: 20px;
+}
+
+.cart_button:hover {
+  background-color: #008CBA;
+  color: white;
+}

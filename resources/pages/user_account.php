@@ -3,6 +3,7 @@
 <head>
 	<title>Account</title>
 	<link rel="stylesheet" type="text/css" href="../css/nav.css">
+	<link rel="stylesheet" type="text/css" href="../css/listb.css">
 	<?php
 		require_once '../php_scripts/connect.php';
 
@@ -43,7 +44,7 @@
 		}
 
 		if($user_type=='artist'){
-			echo "<div align='right'><a href='list_item.php'>List item</a></div>";
+			echo "<div align='center'><a href='list_item.php'><button class='list_button'>List item</button></a></div>";
 		}
 	?>
 </body>
