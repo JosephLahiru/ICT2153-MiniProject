@@ -101,7 +101,10 @@
 			}
 		?>
 		<form action="" method="post">
-			<div align="center"><a href="payment_portal.php"><button class="buy_button">Buy Now</button></a><!-- <button class="cart_button">Add To Cart</button> --><input class="cart_button" type="submit" name="cart" value="Add To Cart"></div>
+			<div align="center">
+				<button onclick="window.open('payment_portal.php');" class="buy_button">Buy Now</button>
+				<input class="cart_button" type="submit" name="cart" value="Add To Cart">
+			</div>
 		</form>
 
 		<?php

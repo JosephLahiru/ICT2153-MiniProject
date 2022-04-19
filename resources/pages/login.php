@@ -19,6 +19,7 @@
 
 		<div align="center">
 			<form action="" method="post">
+				Admin Login <input type="checkbox" name="admin" value="checked"><br>
 				Email : <input type="text" name="email"><br>
 				Password : <input type="password" name="pwd"><br>
 				<input type="submit" name="submit" value="Submit"><br>
@@ -27,7 +28,11 @@
 
 		<?php
 			if(isset($_POST['submit'])){
-				$sql = "SELECT * FROM `user`";
+				if($_POST['admin']=="checked"){
+					$sql = "SELECT * FROM `admin`";
+				}else{
+					$sql = "SELECT * FROM `user`";
+				}
 				$result = mysqli_query($conn, $sql);
 				$check = mysqli_num_rows($result);
 				if($check > 0){
