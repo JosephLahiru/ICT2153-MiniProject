@@ -74,8 +74,27 @@
 			echo "<script>alert('Please fill all the fields !!!'); </script>";
 		}
 		else{
-			echo "<script>alert('Payment Sucessfull. Redirecting to user account.'); </script>";
-			header( 'Location: user_account.php' );
+
+			$img_id = $_SESSION["buying_img"];
+			$artist_id = $_SESSION["buying_artist_id"];
+			$user_id = $_SESSION['user_id'];
+			$amount = $_SESSION['buying_price'];
+
+			$sql_transaction = "INSERT INTO transaction(img_id, artist_id, user_id, amount) VALUES ($img_id, $artist_id, $user_id, $amount);";
+			$sql_update_owner = "UPDATE images SET owned = $user_id WHERE img_id=$img_id;";
+
+			$result_sql_transaction = $conn->query($sql_transaction);
+			$result_sql_update_owner = $conn->query($sql_update_owner);
+
+			if($result_sql_transaction){ 
+				$status = 'success';
+
+				echo "<script> alert('Payment Sucessfull. Redirecting to user account.'); </script>";
+				header( 'Location: user_account.php' );
+			}else{
+				echo "<script>alert('Payment Unsucessfull. Please try again !!!.'); </script>";
+			}
+
 		}
 	}
 ?>

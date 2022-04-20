@@ -13,11 +13,13 @@
 	<?php
 		$user_table = "CREATE TABLE user(id INT AUTO_INCREMENT PRIMARY KEY, firstname VARCHAR(20), lastname VARCHAR(20), gmail VARCHAR(40), password VARCHAR(30), address VARCHAR(50), type VARCHAR(8))  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
 
-		$images_table = "CREATE TABLE `images` (`img_id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, `image` longblob NOT NULL, `created` datetime NOT NULL DEFAULT current_timestamp(), `rank` INT, `views` INT, `topic` VARCHAR(150), user_id INT, FOREIGN KEY(`user_id`) REFERENCES user(`id`))  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
+		$images_table = "CREATE TABLE `images` (`img_id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, `image` longblob NOT NULL, `created` datetime NOT NULL DEFAULT current_timestamp(), `rank` INT, `views` INT, `topic` VARCHAR(150), user_id INT, owned INT, FOREIGN KEY(`user_id`) REFERENCES user(`id`))  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
 
 		$admin_table = "CREATE TABLE admin(id INT AUTO_INCREMENT PRIMARY KEY, firstname VARCHAR(20), lastname VARCHAR(20), gmail VARCHAR(40), password VARCHAR(30), address VARCHAR(50), type VARCHAR(8))  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
 
 		$transaction_table = "CREATE TABLE transaction(transaction_id INT AUTO_INCREMENT PRIMARY KEY, transaction_time datetime NOT NULL DEFAULT current_timestamp(), img_id INT, artist_id INT, user_id INT, amount DECIMAL(15, 2))  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
+
+		$image_price_table = "CREATE TABLE image_price(img_id INT PRIMARY KEY AUTO_INCREMENT, amount DECIMAL(15, 2))  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
 
 		if(isset($_POST['submit_drop'])){
 			$drop_db = "DROP DATABASE ICT2153;";
@@ -44,27 +46,33 @@
 			mysqli_select_db($conn, $dbname);
 
 			if ($conn->query($user_table) === TRUE) {
-			  echo "User table created successfully<br>";
+			  echo "<br>User table created successfully<br>";
 			} else {
 			  echo "Error: " . $user_table . "<br>" . $conn->error;
 			}
 
 			if ($conn->query($images_table) === TRUE) {
-			  echo "Images table created successfully<br>";
+			  echo "<br>Images table created successfully<br>";
 			} else {
 			  echo "Error: " . $images_table . "<br>" . $conn->error;
 			}
 
 			if ($conn->query($admin_table) === TRUE) {
-			  echo "Admin table created successfully<br>";
+			  echo "<br>Admin table created successfully<br>";
 			} else {
 			  echo "Error: " . $admin_table . "<br>" . $conn->error;
 			}
 
 			if ($conn->query($transaction_table) === TRUE) {
-			  echo "Transaction table created successfully<br>";
+			  echo "<br>Transaction table created successfully<br>";
 			} else {
 			  echo "Error: " . $transaction_table . "<br>" . $conn->error;
+			}
+
+			if ($conn->query($image_price_table) === TRUE) {
+			  echo "<br>Image price table created successfully<br>";
+			} else {
+			  echo "Error: " . $image_price_table . "<br>" . $conn->error;
 			}
 
 		}
