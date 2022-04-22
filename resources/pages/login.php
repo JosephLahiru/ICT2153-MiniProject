@@ -26,8 +26,8 @@
 		// echo "<a href='user_account.php'>Account</a>";
 		//echo "<a href='logout.php'>Logout</a>";
 		echo "<a href='art_gallery.php'>Gallery</a>";
-		echo "<a href='home.php'>Home</a> </div>";
-
+		echo "<a href='home.php'>Home</a>";
+		echo "<a href='home.php' class='none'><img src='../images/logo.png' class='logo'></a>";
 		echo "</div>";
 	?>
 </head>
@@ -85,9 +85,14 @@
 		</div>
 
 		<?php
+
+		$found = 0;
+
 			if(isset($_POST['submit'])){
-				if($_POST['admin']=="checked"){
-					$sql = "SELECT * FROM `admin`";
+				if(isset($_POST['admin'])){
+					if($_POST['admin']=="checked"){
+						$sql = "SELECT * FROM `admin`";
+					}
 				}else{
 					$sql = "SELECT * FROM `user`";
 				}
@@ -109,9 +114,14 @@
 							}else{
 								header( 'Location: home.php' );
 							}
+							$found = 1;
 							break;
 						}
 					}
+				}
+
+				if($found == 0){
+					echo "<br><div class='other' align='center'>Login Failed Please Check Your Credentials !!!</div>";
 				}
 			}
 		?>

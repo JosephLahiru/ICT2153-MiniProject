@@ -34,8 +34,9 @@
 			echo "<a href='user_account.php'>Account</a>";
 			//echo "<a href='logout.php'>Logout</a>";
 			echo "<a href='art_gallery.php'>Gallery</a>";
-			echo "<a href='home.php'>Home</a> </div>";
-
+			echo "<a href='home.php'>Home</a>";
+			echo "<a href='home.php' class='none'><img src='../images/logo.png' class='logo'></a>";
+			echo "</div>";
 			//echo "The image id is " . $_GET['img_id'];
 
 			$sql_img = "SELECT * FROM images ORDER BY img_id DESC;";
@@ -67,10 +68,11 @@
 
 						$sql_owned_user = "SELECT firstname, lastname FROM user WHERE id=$owned_id;";
 						$result_owned_usr = $conn->query($sql_owned_user);
-						$row_owned_usr = $result_owned_usr->fetch_assoc();
+						if(!empty($result_owned_usr)){
+							$row_owned_usr = $result_owned_usr->fetch_assoc();
 
-						$owned = $row_owned_usr['firstname'] . " " . $row_owned_usr['lastname'];
-
+							$owned = $row_owned_usr['firstname'] . " " . $row_owned_usr['lastname'];
+						}
 
 						$_SESSION['buying_artist_id'] = $row_usr['id'];
 

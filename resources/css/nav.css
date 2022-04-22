@@ -34,3 +34,18 @@
 .main{
   margin-top: 60px;
 }
+
+.logo{
+  width: 149px;
+  height: auto;
+  margin-left: 20px;
+  margin-top: 2px;
+}
+
+.topnav .none{
+  all:revert;
+}
+
+.topnav .none:hover {
+  all:revert;
+}

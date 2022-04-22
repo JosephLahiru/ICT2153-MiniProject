@@ -24,7 +24,9 @@
 		echo "<a class='active' href='user_account.php'>Account</a>";
 		//echo "<a href='logout.php'>Logout</a>";
 		echo "<a href='art_gallery.php'>Gallery</a>";
-		echo "<a href='home.php'>Home</a> </div>";
+		echo "<a href='home.php'>Home</a>";
+		echo "<a href='home.php' class='none'><img src='../images/logo.png' class='logo'></a>";
+		echo "</div>";
 
 		$sql = "SELECT * FROM `user`";
 		$result = mysqli_query($conn, $sql);
@@ -42,6 +44,12 @@
 				}
 			}
 		}
+
+		//user details area
+
+		//owned pictures area -> for sale : checkbox
+
+		//added pictures area : artist only
 
 		if($user_type=='artist'){
 			echo "<div align='center'><a href='list_item.php'><button class='list_button'>List item</button></a></div>";

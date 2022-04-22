@@ -32,7 +32,9 @@
 			}
 			//echo "<a href='logout.php'>Logout</a>";
 			echo "<a class='active' href='art_gallery.php'>Gallery</a>";
-			echo "<a href='home.php'>Home</a> </div>";
+			echo "<a href='home.php'>Home</a>";
+			echo "<a href='home.php' class='none'><img src='../images/logo.png' class='logo'></a>";
+			echo " </div>";
 
 			$sql = "SELECT image, img_id FROM images ORDER BY img_id DESC;";
 			$result = $conn->query($sql);

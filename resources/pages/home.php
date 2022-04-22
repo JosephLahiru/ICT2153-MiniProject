@@ -3,6 +3,7 @@
 <head>
 	<title>Home</title>
 	<link rel="stylesheet" type="text/css" href="../css/nav.css">
+	
 	<?php
 		require_once '../php_scripts/connect.php';
 		session_start();
@@ -23,6 +24,7 @@
 				echo "<a href='login.php'>Login</a>";
 				echo "<a href='art_gallery.php'>Gallery</a>";
 				echo "<a class='active' href='home.php'>Home</a>";
+				echo "<a href='home.php' class='none'><img src='../images/logo.png' class='logo'></a>";
 
 			}else{
 				echo "<a href='logout.php'>Logout</a>";
@@ -30,6 +32,7 @@
 				echo "<a href='user_account.php'>Account</a>";
 				echo "<a href='art_gallery.php'>Gallery</a>";
 				echo "<a class='active' href='home.php'>Home</a>";
+				echo "<a href='home.php' class='none'><img src='../images/logo.png' class='logo'></a>";
 			}
 
 			$sql = "use $dbname;";
