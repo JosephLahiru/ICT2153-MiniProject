@@ -46,7 +46,7 @@
 		}
 
 		//user details area
-		$sql = "SELECT firstname, lastname, gmail, address FROM user";
+		$sql = "SELECT firstname, lastname, gmail, address FROM user WHERE id=$logged_user_id";
 		$result = mysqli_query($conn, $sql);
 		$data = mysqli_fetch_assoc($result);
 
@@ -63,25 +63,68 @@
 		echo "<tr><td>Address</td><td>$address</td></tr>";
 		echo "</table>";
 
+		//add user functions
+		//change password, logout
+		echo "<br><div align='center'><a href='logout.php'><button class='list_button'>Logout</button></a>";
+		echo "<a href='change_pwd.php'><button class='list_button' style='width:190px;'>Change Password</button></a>";
+		echo "<a href='list_item.php'><button class='list_button'>List item</button></a></div>";
+
 		//owned pictures area -> for sale : checkbox
 		$sql = "SELECT img_id, created, topic, owned FROM images WHERE owned=$logged_user_id";
 		$result = mysqli_query($conn, $sql);
 
 		if(!empty($result)){
 			$count = mysqli_num_rows($result);
-			$data = mysqli_fetch_assoc($result);
 
-			// foreach ($data as $key => $value) {
-			// 	echo "$key -> $value <br>";
-			// }
+			echo "<h2 class='topic'>Owned Pictures</h2>";
+			echo "<table border='1' id='user'>";
+			echo "<tr><th>Image ID</th><th>Created Date/Time</th><th>Imge Topic</th></tr>";
 
-			print_r($data);
+			for($i=0; $i<$count; $i++){
+				$data = mysqli_fetch_assoc($result);
+
+				$img_id = $data['img_id'];
+				$created = $data['created'];
+				$topic = $data['topic'];
+
+				echo "<tr>";
+				echo "<td>$img_id</td>";
+				echo "<td>$created</td>";
+				echo "<td>$topic</td>";
+				echo "</tr>";
+			}
+			echo "</table>";
 		}
 
 		//added pictures area : artist only
 
 		if($user_type=='artist'){
-			echo "<br><div align='center'><a href='list_item.php'><button class='list_button'>List item</button></a></div>";
+
+			$sql = "SELECT img_id, created, topic, user_id FROM images WHERE user_id=$logged_user_id";
+			$result = mysqli_query($conn, $sql);
+
+			if(!empty($result)){
+				$count = mysqli_num_rows($result);
+
+				echo "<h2 class='topic'>Created Images</h2>";
+				echo "<table border='1' id='user'>";
+				echo "<tr><th>Image ID</th><th>Created Date/Time</th><th>Imge Topic</th></tr>";
+
+				for($i=0; $i<$count; $i++){
+					$data = mysqli_fetch_assoc($result);
+
+					$img_id = $data['img_id'];
+					$created = $data['created'];
+					$topic = $data['topic'];
+
+					echo "<tr>";
+					echo "<td>$img_id</td>";
+					echo "<td>$created</td>";
+					echo "<td>$topic</td>";
+					echo "</tr>";
+				}
+				echo "</table>";
+			}
 		}
 	?>
 </body>
