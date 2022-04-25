@@ -129,26 +129,6 @@
 		}
 		else{
 
-			// $img_id = $_SESSION["buying_img"];
-			// $artist_id = $_SESSION["buying_artist_id"];
-			// $user_id = $_SESSION['user_id'];
-			// $amount = $_SESSION['buying_price'];
-
-			// $sql_transaction = "INSERT INTO transaction(img_id, artist_id, user_id, amount) VALUES ($img_id, $artist_id, $user_id, $amount);";
-			// $sql_update_owner = "UPDATE images SET owned = $user_id WHERE img_id=$img_id;";
-
-			// $result_sql_transaction = $conn->query($sql_transaction);
-			// $result_sql_update_owner = $conn->query($sql_update_owner);
-
-			// if($result_sql_transaction){ 
-			// 	$status = 'success';
-
-			// 	echo "<script> alert('Payment Sucessfull. Redirecting to user account.'); </script>";
-			// 	header( 'Location: checkout.php' );
-			// }else{
-			// 	echo "<script>alert('Payment Unsucessfull. Please try again !!!.'); </script>";
-			// }
-
 			$card_name = $_POST['cardname'];
 			$card_number = $_POST['cardnumber'];
 			$exp_month = $_POST['expmonth'];
@@ -157,10 +137,20 @@
 
 			$sql_add_card = "INSERT INTO credit_card (card_name, card_number, exp_month, exp_year, cvv, user_id) VALUES('$card_name', '$card_number', '$exp_month', '$exp_year', '$cvv', '$logged_user_id');";
 
-			//$result_cards = mysqli_query($conn, $sql_add_card);
-
 			if ($conn->query($sql_add_card) === TRUE) {
-			  header( 'Location: checkout.php' );
+			  echo "<script>window.location.href='checkout.php';</script>";
+			} else {
+			  echo "Error: " . $sql_add_card . "<br>" . $conn->error;
+			}
+
+			$sql_retrieve_card_id = "SELECT card_id FROM credit_card WHERE card_number='$card_number';";
+
+			$result_retrieve_card_id = $conn->query($sql_retrieve_card_id);
+
+			$card_id_data = mysqli_fetch_assoc($result_retrieve_card_id);
+
+			if ($result_retrieve_card_id == TRUE) {
+			  $_SESSION['buying_card'] = $card_id_data['card_id'];
 			} else {
 			  echo "Error: " . $sql_add_card . "<br>" . $conn->error;
 			}
@@ -171,7 +161,10 @@
 
 		if(isset($_POST['choose_card'])){
 			$_SESSION['buying_card'] = $_POST['choose_card'];
-			header( 'Location: checkout.php' );
+			// ob_start();
+			// header( 'Location: checkout.php' );
+			// ob_end_flush();
+			echo "<script>window.location.href='checkout.php';</script>";
 		}
 		else{
 			echo "Please Select a Card or Add a new Card !!!";

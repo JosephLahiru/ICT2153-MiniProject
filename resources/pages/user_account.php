@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Account</title>
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
 	<link rel="stylesheet" type="text/css" href="../css/nav.css">
 	<link rel="stylesheet" type="text/css" href="../css/listb.css">
 	<?php

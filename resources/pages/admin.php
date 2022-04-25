@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>admin</title>
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
 	<?php
 		require_once '../php_scripts/connect.php';
 

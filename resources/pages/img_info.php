@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/listb.css">
 	<link rel="stylesheet" type="text/css" href="../css/nav.css">
 	<link rel="stylesheet" type="text/css" href="../css/img_info.css">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
 	<?php
 		require_once '../php_scripts/connect.php';
 		session_start();
@@ -79,7 +80,11 @@
 						echo "<h1 align='center'>$topic</h1>";
 
 						?>
-							<img class="center" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>"/>
+							<div align="center">
+								<div style="width:1000px; height: auto;">
+									<img class="center" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>"/>
+								</div>							
+							</div>
 						<?php
 
 						echo "<br><div align='center' class='txt'>Artist : $first $last<br>";
@@ -137,7 +142,7 @@
 			<div align="center">
 				<?php $_SESSION['buying_img'] = $_GET['img_id'];?>
 				<button onclick="window.open('payment_portal.php');" class="buy_button">Buy Now</button>
-				<input class="cart_button" type="submit" name="cart" value="Add To Cart">
+				<!-- <input class="cart_button" type="submit" name="cart" value="Add To Cart"> -->
 			</div>
 		</form>
 

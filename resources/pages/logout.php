@@ -5,9 +5,12 @@
 	<!--<meta http-equiv="refresh" content="2; URL=home.php">-->
 	<?php
 		session_start();
-		$_SESSION['logged_user'] = "";
+		$session_data = array_keys($_SESSION);
+		foreach ($session_data as $key){
+			unset($_SESSION[$key]);
+		}
 
-		sleep(2);
+		sleep(1);
 		header( 'Location: home.php' );
 	?>
 </head>
