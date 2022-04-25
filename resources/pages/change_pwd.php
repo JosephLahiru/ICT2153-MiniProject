@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/style1.css">
     <link rel="stylesheet" type="text/css" href="../css/payport.css">
 	<link rel="stylesheet" type="text/css" href="../css/nav.css">
+	
 	<?php
 		require_once '../php_scripts/connect.php';
 

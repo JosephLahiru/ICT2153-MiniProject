@@ -21,6 +21,8 @@
 
 		$image_price_table = "CREATE TABLE image_price(img_id INT PRIMARY KEY AUTO_INCREMENT, amount DECIMAL(15, 2))  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
 
+		$credit_card_table = "CREATE TABLE credit_card(card_id INT PRIMARY KEY AUTO_INCREMENT, added_time datetime NOT NULL DEFAULT current_timestamp(), card_name VARCHAR(30), card_number CHAR(16), exp_month VARCHAR(10), exp_year CHAR(4), cvv CHAR(3), user_id INT)  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
+
 		if(isset($_POST['submit_drop'])){
 			$drop_db = "DROP DATABASE ICT2153;";
 
@@ -73,6 +75,12 @@
 			  echo "<br>Image price table created successfully<br>";
 			} else {
 			  echo "Error: " . $image_price_table . "<br>" . $conn->error;
+			}
+
+			if ($conn->query($credit_card_table) === TRUE) {
+			  echo "<br>Credit card table created successfully<br>";
+			} else {
+			  echo "Error: " . $credit_card_table . "<br>" . $conn->error;
 			}
 
 		}
