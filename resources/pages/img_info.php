@@ -146,6 +146,8 @@
 			if(isset($_POST['cart'])){
 				echo "<script>alert('added to cart successfully');</script>";
 			}
+
+			require_once '../php_scripts/footer.php';
 		?>
 	</div>
 </body>

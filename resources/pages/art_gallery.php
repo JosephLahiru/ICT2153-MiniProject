@@ -52,6 +52,8 @@
 			}else{
 				echo "<p class='status error'>Image(s) not found...</p>";
 			}
+
+			require_once '../php_scripts/footer.php';
 		?>
 	</div>
 </body>

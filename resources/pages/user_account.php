@@ -126,6 +126,8 @@
 				echo "</table>";
 			}
 		}
+
+		require_once '../php_scripts/footer.php';
 	?>
 </body>
 </html>

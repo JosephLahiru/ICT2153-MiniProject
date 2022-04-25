@@ -178,6 +178,8 @@
 		}
 		//echo "The chosen card is " . $_SESSION['buying_card'];
 	}
+
+	require_once '../php_scripts/footer.php';
 ?>
 
 </body>

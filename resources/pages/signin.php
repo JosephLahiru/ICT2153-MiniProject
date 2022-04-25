@@ -104,6 +104,8 @@
 		  echo "Error: " . $sql . "<br>" . $conn->error;
 		}
 	}
+
+	require_once '../php_scripts/footer.php';
 	?>
 </body>
 </html>

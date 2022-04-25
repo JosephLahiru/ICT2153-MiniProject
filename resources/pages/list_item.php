@@ -99,6 +99,8 @@
 				}
 			}
 			echo "<br><div class='other' align='center'>$statusMsg</div>";
+
+			require_once '../php_scripts/footer.php';
 		?>
 	</div>
 </body>

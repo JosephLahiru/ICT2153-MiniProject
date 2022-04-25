@@ -47,5 +47,7 @@
 
 		<h1 align="center">Welcome To Millanium Art Gallery</h1>
 	</div>
+
+	<?php require_once '../php_scripts/footer.php'; ?>
 </body>
 </html>

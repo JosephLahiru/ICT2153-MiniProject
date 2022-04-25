@@ -100,6 +100,8 @@
 					//header( 'Location: user_account.php' );
 				}
 			}
+			
+			require_once '../php_scripts/footer.php';
 		?>
 	</div>
 </body>

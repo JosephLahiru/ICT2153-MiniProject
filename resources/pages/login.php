@@ -124,6 +124,8 @@
 					echo "<br><div class='other' align='center'>Login Failed Please Check Your Credentials !!!</div>";
 				}
 			}
+
+			require_once '../php_scripts/footer.php';
 		?>
 	</div>
 </body>
