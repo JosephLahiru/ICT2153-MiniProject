@@ -54,11 +54,6 @@
                 </form>
 
             </div>
-            <div class="form-footer">
-                <div>
-                    <span>Already Have an account?</span> <a href="login.php">Log In Here</a>
-                </div>
-            </div>
         </div>
     </div>
 </div>
@@ -66,44 +61,44 @@
 	<?php
 	if(isset($_POST['submit'])){
 
-		echo "<script>";
+		if(empty($_POST['fname']) && empty($_POST['lname']) && empty($_POST['email']) && empty($_POST['pwd']) && empty($_POST['address'])){
+			echo "<br><div class='other' align='center'>Please fill all the fields !!</div>";
+		}
+		else if(empty($_POST['fname'])){
+			echo "<br><div class='other' align='center'>Please enter your first name !!</div>";
+		}
+		else if(empty($_POST['lname'])){
+			echo "<br><div class='other' align='center'>Please enter your last name !!</div>";
+		}
 
-			if(empty($_POST['fname'])){
-				echo "alert('Please enter your first name !!');";
-				echo "document.getElementById('fname').focus();";
+		else if(empty($_POST['email'])){
+			echo "<br><div class='other' align='center'>Please enter your email !!</div>";
+		}
+
+		else if(empty($_POST['pwd'])){
+			echo "<br><div class='other' align='center'>Please enter your password !!</div>";
+		}
+
+		else if(empty($_POST['address'])){
+			echo "<br><div class='other' align='center'>Please enter your address !!</div>";
+		}
+		else{
+
+			$sql = "INSERT INTO user (firstname, lastname, gmail, password, address, type) VALUES ('" . $_POST['fname'] . "', '" . $_POST['lname'] . "', '" . $_POST['email'] . "', '" . $_POST['pwd'] . "', '" . $_POST['address'] . "', '" . $_POST['type'] . "');";
+
+			if ($conn->query($sql) === TRUE) {
+			  echo "New record created successfully";
+			  sleep(2);
+			  header( 'Location: login.php' );
+			} else {
+			  echo "Error: " . $sql . "<br>" . $conn->error;
 			}
-			else if(empty($_POST['lname'])){
-				echo "alert('Please enter your last name !!');";
-				echo "document.getElementById('lname').focus();";
-			}
-
-			else if(empty($_POST['email'])){
-				echo "alert('Please enter your email !!');";
-				echo "document.getElementById('email').focus();";
-			}
-
-			else if(empty($_POST['pwd'])){
-				echo "alert('Please enter your password !!');";
-				echo "document.getElementById('pwd').focus();";
-			}
-
-			else if(empty($_POST['address'])){
-				echo "alert('Please enter your address !!');";
-				echo "document.getElementById('address').focus();";
-			}
-
-		echo "</script>";
-
-		$sql = "INSERT INTO user (firstname, lastname, gmail, password, address, type) VALUES ('" . $_POST['fname'] . "', '" . $_POST['lname'] . "', '" . $_POST['email'] . "', '" . $_POST['pwd'] . "', '" . $_POST['address'] . "', '" . $_POST['type'] . "');";
-
-		if ($conn->query($sql) === TRUE) {
-		  echo "New record created successfully";
-		  sleep(2);
-		  header( 'Location: login.php' );
-		} else {
-		  echo "Error: " . $sql . "<br>" . $conn->error;
 		}
 	}
+
+	echo "<div class='form-footer'>";
+	echo "<div><span>Already Have an account?</span> <a href='login.php'>Log In Here</a></div>";
+	echo "</div>";
 
 	require_once '../php_scripts/footer.php';
 	?>

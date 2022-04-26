@@ -1,5 +1,3 @@
-<div class="spacing"></div>
-
 <style>
 .footer {
    position: fixed;
@@ -17,6 +15,8 @@
 }
 </style>
 
+<div class="spacing"></div>
+
 <div class="footer">
-  <div style="margin-top: 10px;">Footer</div>
+  <div style="margin-top: 10px;">Millanium Art Gallery</div>
 </div>

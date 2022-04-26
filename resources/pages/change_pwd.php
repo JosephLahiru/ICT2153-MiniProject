@@ -60,44 +60,48 @@
 
 		<?php
 			if(isset($_POST['submit'])){
-
-				$error = 0;
-
-				$user_id = $_SESSION['user_id'];
-				$sql_user = "SELECT * FROM user WHERE id=$user_id";
-
-				$result_user = mysqli_query($conn, $sql_user);
-				$data_user = mysqli_fetch_assoc($result_user);
-
 				if(!empty($_POST['old_pwd']) && !empty($_POST['new_pwd']) && !empty($_POST['com_pwd'])){
+					$error = 0;
 
-					if($_POST['old_pwd'] == $data_user['password']){
+					$user_id = $_SESSION['user_id'];
+					$sql_user = "SELECT * FROM user WHERE id=$user_id";
 
-						$new_pwd = $_POST['new_pwd'];
+					$result_user = mysqli_query($conn, $sql_user);
+					$data_user = mysqli_fetch_assoc($result_user);
 
-						if($new_pwd == $_POST['com_pwd']){
-							$sql = "UPDATE user SET password=$new_pwd WHERE id=$user_id";
-							$result = mysqli_query($conn, $sql);
+					if(!empty($_POST['old_pwd']) && !empty($_POST['new_pwd']) && !empty($_POST['com_pwd'])){
+
+						if($_POST['old_pwd'] == $data_user['password']){
+
+							$new_pwd = $_POST['new_pwd'];
+
+							if($new_pwd == $_POST['com_pwd']){
+								$sql = "UPDATE user SET password=$new_pwd WHERE id=$user_id";
+								$result = mysqli_query($conn, $sql);
+							}
+							else{
+								echo "<br><div class='other' align='center'>New password and comfirm password does not match.</div>";
+								$error = 1;
+							}
 						}
+
 						else{
-							echo "<br><div class='other' align='center'>New password and comfirm password does not match.</div>";
+							echo "<br><div class='other' align='center'>Old password miss match.</div>";
 							$error = 1;
-						}
+						}		
 					}
 
 					else{
-						echo "<br><div class='other' align='center'>Old password miss match.</div>";
+						echo "<br><div class='other' align='center'>Plese fill all the parameters.</div>";
 						$error = 1;
-					}		
+					}
+					if($error==0){
+						echo "<script> alert('Password changed sucessfully.'); window.location.href='user_account.php';</script>";
+						//header( 'Location: user_account.php' );
+					}
 				}
-
 				else{
-					echo "<br><div class='other' align='center'>Plese fill all the parameters.</div>";
-					$error = 1;
-				}
-				if($error==0){
-					echo "<script> alert('Password changed sucessfully.'); window.location.href='user_account.php';</script>";
-					//header( 'Location: user_account.php' );
+					echo "<br><div class='other' align='center'>Please fill in all the fields.</div>";
 				}
 			}
 			

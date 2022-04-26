@@ -56,6 +56,7 @@
 
 			require_once '../php_scripts/footer.php';
 		?>
+		</div>
 	</div>
 </body>
 </html>

@@ -6,7 +6,6 @@
 	<title>Login</title>
 	<link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style1.css">
-    <link rel="stylesheet" type="text/css" href="../css/payport.css">
 	<link rel="stylesheet" type="text/css" href="../css/nav.css">
 	<?php
 		require_once '../php_scripts/connect.php';
@@ -33,15 +32,6 @@
 </head>
 <body>
 	<div class="main">
-<!-- 		<div align="center">
-			<form action="" method="post">
-				Admin Login <input type="checkbox" name="admin" value="checked"><br>
-				Email : <input type="text" name="email"><br>
-				Password : <input type="password" name="pwd"><br>
-				<input type="submit" name="submit" value="Submit"><br>
-			</form>
-		</div> -->
-
 		<div class="main-container">
 		    <div class="form-container">
 
@@ -75,12 +65,6 @@
 
 		        </div>
 
-		        <div class="form-footer">
-		            <div>
-		                <span>Don't have an account?</span> <a href="signin.php">Sign Up</a>
-		            </div>
-		        </div>
-
 		    </div>
 		</div>
 
@@ -89,44 +73,52 @@
 		$found = 0;
 
 			if(isset($_POST['submit'])){
-				if(isset($_POST['admin'])){
-					if($_POST['admin']=="checked"){
-						$sql = "SELECT * FROM `admin`";
-					}
-				}else{
-					$sql = "SELECT * FROM `user`";
-				}
-				$result = mysqli_query($conn, $sql);
-				$check = mysqli_num_rows($result);
-				if($check > 0){
-					while($data= mysqli_fetch_assoc($result)){
-						if($data["gmail"] == $_POST['email'] && $data["password"] == $_POST['pwd']){
-							$logged_user = $data['firstname'];
-							$logged_user_id = $data['id'];
-							//$_SESSION['varname'] = $var_value;
 
-							$_SESSION['logged_user'] = $logged_user;
-							$_SESSION['user_id'] = $logged_user_id;
-							echo "<br>The logged in user is " . $data['firstname'];
-							sleep(1);
-							if($data['type'] == "admin"){
-								header( 'Location: admin.php' );
-							}else{
-								header( 'Location: home.php' );
+				if(empty($_POST['email']) || empty($_POST['pwd'])){
+					echo "<br><div class='other' align='center'>Please Fill All The fields !!!</div>";
+				}
+				else{
+					if(isset($_POST['admin'])){
+						if($_POST['admin']=="checked"){
+							$sql = "SELECT * FROM `admin`";
+						}
+					}else{
+						$sql = "SELECT * FROM `user`";
+					}
+					$result = mysqli_query($conn, $sql);
+					$check = mysqli_num_rows($result);
+					if($check > 0){
+						while($data= mysqli_fetch_assoc($result)){
+							if($data["gmail"] == $_POST['email'] && $data["password"] == $_POST['pwd']){
+								$logged_user = $data['firstname'];
+								$logged_user_id = $data['id'];
+								//$_SESSION['varname'] = $var_value;
+
+								$_SESSION['logged_user'] = $logged_user;
+								$_SESSION['user_id'] = $logged_user_id;
+								echo "<br>The logged in user is " . $data['firstname'];
+								sleep(1);
+								if($data['type'] == "admin"){
+									header( 'Location: admin.php' );
+								}else{
+									header( 'Location: home.php' );
+								}
+								$found = 1;
+								break;
 							}
-							$found = 1;
-							break;
 						}
 					}
-				}
 
-				if($found == 0){
-					echo "<br><div class='other' align='center'>Login Failed Please Check Your Credentials !!!</div>";
+					if($found == 0){
+						echo "<br><div class='other' align='center'>Login Failed Please Check Your Credentials !!!</div>";
+					}
 				}
 			}
 
-			require_once '../php_scripts/footer.php';
+			echo "<div class='form-footer'>";
+			echo "<div><span>Don't have an account?</span> <a href='signin.php'>Sign Up</a></div>";
 		?>
 	</div>
+	<?php require_once '../php_scripts/footer.php';?>
 </body>
 </html>

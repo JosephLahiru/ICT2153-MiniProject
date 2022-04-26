@@ -54,19 +54,19 @@
 		<div class="mySlides fade">
 		  <!-- <div class="numbertext">2 / 4</div> -->
 		  <img src="../db_images/art_2.jpg" style="width:100%">
-		  <div class="text">Caption Two</div>
+		  <div class="text">Desert Valley</div>
 		</div>
 
 		<div class="mySlides fade">
 		  <!-- <div class="numbertext">3 / 4</div> -->
 		  <img src="../db_images/art_7.jpg" style="width:100%">
-		  <div class="text">Caption Three</div>
+		  <div class="text">Mountains</div>
 		</div>
 
 		<div class="mySlides fade">
 		  <!-- <div class="numbertext">4 / 4</div> -->
 		  <img src="../db_images/art_8.jpg" style="width:100%">
-		  <div class="text">Caption Four</div>
+		  <div class="text">Retro Planet</div>
 		</div>
 
 		</div>

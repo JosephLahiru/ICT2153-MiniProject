@@ -2,7 +2,6 @@
 <html>
 <head>
 	<title>Account</title>
-	<link rel="stylesheet" type="text/css" href="../css/main.css">
 	<link rel="stylesheet" type="text/css" href="../css/nav.css">
 	<link rel="stylesheet" type="text/css" href="../css/listb.css">
 	<?php
@@ -17,8 +16,13 @@
 			//echo "<h1 align='center'>Hello " . $current_user . "</h1>";
 		}
 	?>
+	<style type="text/css">
+		body {font-family: Verdana, sans-serif;
+	}
+	</style>
 </head>
 <body>
+<div class="main">
 	<div class="topnav">
 	<?php
 		echo "<a href='user_account.php'>Hello " . $current_user . "!</a>";
@@ -39,7 +43,7 @@
 					$logged_user = $data['firstname'];
 					$user_type = $data['type'];				
 
-					echo "<h2> Current user type " . $user_type . "</h2>";
+					echo "<h2> Current user type : " . $user_type . "</h2>";
 
 					break;
 				}
@@ -130,5 +134,6 @@
 
 		require_once '../php_scripts/footer.php';
 	?>
+	</div>
 </body>
 </html>
