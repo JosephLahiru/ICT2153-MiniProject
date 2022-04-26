@@ -99,7 +99,7 @@
 								echo "<br>The logged in user is " . $data['firstname'];
 								sleep(1);
 								if($data['type'] == "admin"){
-									header( 'Location: admin.php' );
+									header( 'Location: admin/admin.php' );
 								}else{
 									header( 'Location: home.php' );
 								}

@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>admin</title>
-	<link rel="stylesheet" type="text/css" href="../css/main.css">
-	<link rel="stylesheet" type="text/css" href="../css/listb.css">
+	<title>Show Tables</title>
+	<link rel="stylesheet" type="text/css" href="../../css/main.css">
+	<link rel="stylesheet" type="text/css" href="../../css/listb_admin.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<?php
-		require_once '../php_scripts/connect.php';
+		require_once '../../php_scripts/connect.php';
 
 		mysqli_select_db($conn, $dbname);
 
 		session_start();
 
-		$data = [];
+		require_once "admin_nav.php";
 	?>
 </head>
 <body>
+	<div class="main">
 	<?php
 		//user table
 		$sql_user = "SELECT * FROM user;";
@@ -43,7 +44,6 @@
 				echo "</tr>";
 			}
 			echo "</table><br>";
-
 		}
 
 		//credit_card table
@@ -153,6 +153,8 @@
 			echo "</table><br>";
 		}
 
+		require_once "admin_footer.php";
 	?>
+	</div>
 </body>
 </html>
