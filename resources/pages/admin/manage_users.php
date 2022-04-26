@@ -79,7 +79,12 @@
 					<tr><td>Email</td><td><input type='radio' name='update_usr' value='email'></td><td><input type="text" name="email_new"></td></tr>
 					<tr><td>Password</td><td><input type='radio' name='update_usr' value='password'></td><td><input type="text" name="password_new"></td></tr>
 					<tr><td>Address</td><td><input type='radio' name='update_usr' value='address'></td><td><input type="text" name="address_new"></td></tr>
-					<tr><td>User Type</td><td><input type='radio' name='update_usr' value='user_type'></td><td><input type="text" name="user_type_new"></td></tr>
+					<tr><td>User Type</td><td><input type='radio' name='update_usr' value='user_type'></td><td><!-- <input type="text" name="user_type_new"> -->
+						<select name="user_type_new">
+							<option value="user">user</option>
+							<option value="artist">artist</option>
+						</select>
+					</td></tr>
 				</table>
 				<br>
 				<input type='submit' name='submit_update' value='Update User Data' class='delete_button' style='width:180px;'><input type='reset' name='reset' value='Clear Selection' class='upload_button' style='width:160px; margin-left:10px;'>
@@ -106,10 +111,13 @@
 						else{
 							echo "<br>Please choose a field to update.";
 						}
-						if(mysqli_query($conn, $sql_update_user)==TRUE){
-							echo "<br>User data Updated Successfully";
-						}else{
-							echo "<br>User data update failure : " . mysqli_error($conn);
+						if(!empty($sql_update_user)){
+							//echo "$sql_update_user";
+							if(mysqli_query($conn, $sql_update_user)==TRUE){
+								echo "<br>User data Updated Successfully";
+							}else{
+								echo "<br>User data update failure : " . mysqli_error($conn);
+							}
 						}
 
 					}else{
