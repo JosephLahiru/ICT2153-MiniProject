@@ -6,6 +6,9 @@
 		<link rel="stylesheet" type="text/css" href="../css/main.css">
 		<link rel="stylesheet" type="text/css" href="../css/nav.css">
 		<link rel="stylesheet" type="text/css" href="../css/slideshow.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
 		
 		<?php
 			require_once '../php_scripts/connect.php';
@@ -41,7 +44,7 @@
 	</head>
 	<body>
 		<div class="main">
-			<h1 align="center">Welcome To Millanium Art Gallery</h1>
+			<h1 align="center" style="font-family: 'Cinzel', serif; font-size: 50px;">Welcome To Millanium Art Gallery</h1>
 
 			<div class="slideshow-container">
 

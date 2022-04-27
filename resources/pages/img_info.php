@@ -22,6 +22,7 @@
 					margin-left: auto;
 					margin-right: auto;
 					width: 50%;
+					border-radius: 10px;
 				}
 		</style>
 	</head>
