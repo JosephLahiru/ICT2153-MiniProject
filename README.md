@@ -10,8 +10,8 @@
 ### Appearance
 - You are free to use CSS, javascript and JQuery where necessary
 - [x] You should have a consistent navigation to navigate to different pages.
-- [] You should organize all the pages in a good structure.
-- [] Your pages should be easy to read, easy to navigate.
+- [ ] You should organize all the pages in a good structure.
+- [ ] Your pages should be easy to read, easy to navigate.
 - [x] You should have at least one form in your website which can be handled using php.
 - [x] The forms should be validated.
 - You are not allowed to use any templates (built in web sites).
