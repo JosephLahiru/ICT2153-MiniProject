@@ -13,7 +13,6 @@
 
 			require_once "admin_nav.php";
 		?>
-		
 	</head>
 	<body>
 		<div class="main" align="center">
@@ -125,7 +124,6 @@
 					}
 				}
 			?>
-
 			<?php require_once "admin_footer.php"; ?>
 		</div>
 	</body>
