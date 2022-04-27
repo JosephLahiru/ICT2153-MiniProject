@@ -34,6 +34,7 @@
 			<button class="upload_button" onclick="window.location.href='manage_users.php';" style="width:160px">Manage Users</button>
 			<button id="show_terminal" class="upload_button" style="width:160px">Show Terminal</button>
 			<button id="hide_terminal" class="upload_button" style="width:160px; display: none;">Hide Terminal</button>
+			<button class="upload_button" onclick="window.location.href='../logout.php';" style="width:160px">Log out</button>
 		</div>
 
 		<br>
