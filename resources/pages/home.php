@@ -83,6 +83,39 @@
 			</div>
 
 		</div>
+		<br>
+		<div align="center">
+			<div style="background-color: rgba(105, 105, 105, 0.75); width: 90%; border-radius: 10px;">
+				<table style="width:95%;">
+					<col style="width:50%">
+					<col style="width:50%">
+					<tr>
+						<td>
+							<h2>About us</h2>
+						</td>
+						<td>
+							<h2>Our targets</h2>
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: text-top;">
+							<p style="text-align: justify; padding: 5px;">
+								Millanium art gallery connects audiences and art, providing an extraordinary space where contemporary life and contemporary art connect, challenge, and inspire one another. We share, develop and conserve the  National Collection of Modern and Contemporary Art for now and for the future.
+							</p>
+						</td>
+						<td style="vertical-align: text-top;">
+							<ul>
+								<li>We acknowledge and respect the legacy of the artist members who built this organization.</li>
+								<li>We believe the arts are essential to human existence.</li>
+								<li>We believe in the power of artists working cooperatively as a community for economic viability, support, feedback, and the nurturing of new ideas.</li>
+								<li>We believe in artistic excellence, innovation, and all forms of creative engagement.</li>
+								<li>We strive to support artists at all stages of their careers from diverse communities, artistic genres, and traditions.</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</div>	
+		</div>
 
 		<script>
 			let slideIndex = 0;
