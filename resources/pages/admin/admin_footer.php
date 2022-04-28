@@ -4,7 +4,7 @@
    left: 0;
    bottom: 0px;
    width: 100%;
-   background-color: #333;
+   background-color: rgba(64, 64, 64, 0.80);
    color: white;
    text-align: center;
    height: 40px;

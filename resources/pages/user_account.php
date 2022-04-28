@@ -3,7 +3,8 @@
 <head>
 	<title>Account</title>
 	<link rel="stylesheet" type="text/css" href="../css/nav.css">
-	<link rel="stylesheet" type="text/css" href="../css/listb.css">
+	<link rel="stylesheet" type="text/css" href="../css/listb_admin.css">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
 	<?php
 		require_once '../php_scripts/connect.php';
 
@@ -43,7 +44,7 @@
 					$logged_user = $data['firstname'];
 					$user_type = $data['type'];				
 
-					echo "<h2> Current user type : " . $user_type . "</h2>";
+					echo "<h2 style='margin-left:4%;'> Current user type : " . $user_type . "</h2>";
 
 					break;
 				}
@@ -59,6 +60,9 @@
 		$lastname = $data['lastname'];
 		$gmail = $data['gmail'];
 		$address = $data['address'];
+
+		echo "<div align='center'>";
+		echo "<div style=\"background-color: rgba(105, 105, 105, 0.75); width: 90%; border-radius: 10px; padding:20px;\">";
 
 		echo "<h2 class='topic'>User Data</h2>";
 		echo "<table border='1' id='user'>";
@@ -83,7 +87,7 @@
 
 			echo "<h2 class='topic'>Owned Pictures</h2>";
 			echo "<table border='1' id='user'>";
-			echo "<tr><th>Image ID</th><th>Created Date/Time</th><th>Imge Topic</th></tr>";
+			echo "<tr><th>Image ID</th><th>Created Date/Time</th><th>Image Topic</th></tr>";
 
 			for($i=0; $i<$count; $i++){
 				$data = mysqli_fetch_assoc($result);
@@ -131,6 +135,9 @@
 				echo "</table>";
 			}
 		}
+
+		echo "</div>";
+		echo "</div>";
 
 		require_once '../php_scripts/footer.php';
 	?>
