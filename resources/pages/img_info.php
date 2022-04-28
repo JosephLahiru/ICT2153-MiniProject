@@ -77,6 +77,8 @@
 							}
 
 							$_SESSION['buying_artist_id'] = $row_usr['id'];
+							$_SESSION['buying_artist_name'] = $row_usr['firstname'];
+							$_SESSION['buying_image_topic'] = $topic;
 
 							echo "<h1 align='center'>$topic</h1>";
 

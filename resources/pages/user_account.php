@@ -76,7 +76,9 @@
 		//change password, logout
 		echo "<br><div align='center'><a href='logout.php'><button class='list_button'>Logout</button></a>";
 		echo "<a href='change_pwd.php'><button class='list_button' style='width:190px;'>Change Password</button></a>";
-		echo "<a href='list_item.php'><button class='list_button'>List item</button></a></div>";
+		if($user_type=='artist'){
+			echo "<a href='list_item.php'><button class='list_button'>List item</button></a></div>";
+		}
 
 		//owned pictures area -> for sale : checkbox
 		$sql = "SELECT img_id, created, topic, owned FROM images WHERE owned=$logged_user_id";

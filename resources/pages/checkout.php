@@ -35,17 +35,19 @@
 			<?php
 				$img_id = $_SESSION["buying_img"];
 				$artist_id = $_SESSION["buying_artist_id"];
+				$artist_name = $_SESSION['buying_artist_name'];
 				$user_id = $_SESSION['user_id'];
 				$amount = $_SESSION['buying_price'];
 				$card = $_SESSION['buying_card'];
+				$topic = $_SESSION['buying_image_topic'];
 
 				echo "<table id='user'>";
 				echo "<tr>";
-				echo "<td>Image ID</td><td>$img_id</td>";
+				echo "<td>Image ID</td><td>$img_id ($topic)</td>";
 				echo "</tr><tr>";
-				echo "<td>Artist ID</td><td>$artist_id</td>";
+				echo "<td>Artist ID</td><td>$artist_id ($artist_name)</td>";
 				echo "</tr><tr>";
-				echo "<td>Buyer ID</td><td>$user_id</td>";
+				echo "<td>Buyer ID</td><td>$user_id ($current_user)</td>";
 				echo "</tr><tr>";
 				echo "<td>Amount</td><td>\$ $amount</td>";
 				echo "</tr><tr>";
